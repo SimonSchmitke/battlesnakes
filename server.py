@@ -1,6 +1,6 @@
 import os
 import random
-
+import numpy
 import cherrypy
 
 """
@@ -43,15 +43,26 @@ class Battlesnake(object):
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
         my_snake = data["you"]
-
-        if my_snake["head"]["x"] > 1 and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
-          move = "left"
-        elif my_snake["head"]["y"] > 0:
-          move = "down"
-        elif my_snake["head"]["x"] < 6 and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
-          move = "right"
+        # dist = MIN(\
+        #         np.linalg.norm(data["board"]["food"][0] - my_snake["head"]) \
+        #         , 1)
+        if my_snake["head"]["x"] < data["board"]["food"][0]["x"]:
+            move = "right"
+        elif my_snake["head"]["x"] > data["board"]["food"][0]["x"]:
+            move = "left"
+        elif my_snake["head"]["y"] > data["board"]["food"][0]["y"]:
+            move = "down"
         else:
-          move = "up"
+            move = "up"
+        # Below code is to spin in a circle
+        # if my_snake["head"]["x"] > 0 and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
+        #   move = "left"
+        # elif my_snake["head"]["y"] > 0:
+        #   move = "down"
+        # elif my_snake["head"]["x"] < 6 and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
+        #   move = "right"
+        # else:
+        #   move = "up"
         
         print("X value at this time " + str(data["board"]["snakes"][0]["body"][1]["x"]))
         print("Y value at this time " + str(data["board"]["snakes"][0]["body"][1]["y"]))
