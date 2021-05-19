@@ -48,7 +48,7 @@ class Battlesnake(object):
           move = "left"
         elif my_snake["head"]["y"] > 0:
           move = "down"
-        elif my_snake["head"]["x"] < 7 and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
+        elif my_snake["head"]["x"] < 6 and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
           move = "right"
         else:
           move = "up"
