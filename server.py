@@ -42,13 +42,13 @@ class Battlesnake(object):
         # Valid moves are "up", "down", "left", or "right".
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
-        print(data)
-        print(data["board"]["snakes"][0]["body"])
-        if data["board"]["snakes"][0]["body"][1]["x"] > 1:
+        my_snake = data["you"]
+
+        if my_snake["head"]["x"] > 1:
           move = "left"
-        elif data["board"]["snakes"][0]["head"]["y"] > 0:
+        elif my_snake["head"]["y"] > 0:
           move = "down"
-        elif data["board"]["snakes"][0]["head"]["x"] < 7:
+        elif my_snake["head"]["x"] < 7:
           move = "right"
         else:
           move = "up"
