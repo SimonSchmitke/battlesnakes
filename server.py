@@ -18,8 +18,8 @@ class Battlesnake(object):
         # TIP: If you open your Battlesnake URL in browser you should see this data
         return {
             "apiversion": "1",
-            "author": "",  # TODO: Your Battlesnake Username
-            "color": "#888888",  # TODO: Personalize
+            "author": "first_snake",  # TODO: Your Battlesnake Username
+            "color": "#123456",  # TODO: Personalize
             "head": "default",  # TODO: Personalize
             "tail": "default",  # TODO: Personalize
         }
@@ -42,10 +42,22 @@ class Battlesnake(object):
         # Valid moves are "up", "down", "left", or "right".
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
-
+        print(data)
+        print(data["board"]["snakes"][0]["body"])
+        if data["board"]["snakes"][0]["body"][1]["x"] > 1:
+          move = "left"
+        elif data["board"]["snakes"][0]["head"]["y"] > 0:
+          move = "down"
+        elif data["board"]["snakes"][0]["head"]["x"] < 7:
+          move = "right"
+        else:
+          move = "up"
+        
+        print("X value at this time " + str(data["board"]["snakes"][0]["body"][1]["x"]))
+        print("Y value at this time " + str(data["board"]["snakes"][0]["body"][1]["y"]))
         # Choose a random direction to move in
-        possible_moves = ["up", "down", "left", "right"]
-        move = random.choice(possible_moves)
+        #possible_moves = ["up", "down", "left", "right"]
+        #move = random.choice(possible_moves)
 
         print(f"MOVE: {move}")
         return {"move": move}
