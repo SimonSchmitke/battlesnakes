@@ -50,10 +50,10 @@ class Battlesnake(object):
             move = "right"
         elif my_snake["head"]["x"] > data["board"]["food"][0]["x"]:
             move = "left"
-        elif my_snake["head"]["y"] > data["board"]["food"][0]["y"]:
+        elif my_snake["head"]["y"] < data["board"]["food"][0]["y"]:
             move = "down"
         else:
-            move = "up"
+            move = "down"
         # Below code is to spin in a circle
         # if my_snake["head"]["x"] > 0 and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
         #   move = "left"
