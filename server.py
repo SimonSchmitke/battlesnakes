@@ -56,8 +56,39 @@ class Battlesnake(object):
             counter+=1
 
 
-        # If I'm at the the top or bottom of map, go left or right.
-        if my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
+        # If I'm at the bottom left corner and can move up, move up.
+        if my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 0\
+            and possible_up not in my_body:
+            move = "up"
+        # If I'm at the bottom left corner and can move right, move right.
+        elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 0\
+            and possible_right not in my_body:
+            move = "right"
+        # If I'm at the bottom right corner and can move up, move up.
+        elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 10\
+            and possible_up not in my_body:
+            move = "up"
+        # If I'm at the bottom right corner and can move left, move left.
+        elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 10\
+            and possible_left not in my_body:
+            move = "left"
+        # If I'm at the top right corner and can move left, move left.
+        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 10\
+            and possible_left not in my_body:
+            move = "left"
+        # If I'm at the top right corner and can move down, move down.
+        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 10\
+            and possible_down not in my_body:
+            move = "down"
+        # If I'm at the top left corner and can move down, move down.
+        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
+            and possible_down not in my_body:
+            move = "down"
+        # If I'm at the top left corner and can move right, move right.
+        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
+            and possible_right not in my_body:
+            move = "right"
+        elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
             and possible_right not in my_body\
             and possible_right["x"] <= 10 and possible_right["x"] >= 0:
             move = "right"
