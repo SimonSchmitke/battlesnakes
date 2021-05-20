@@ -1,6 +1,5 @@
 import os
 import random
-import numpy
 import cherrypy
 
 """
@@ -64,8 +63,6 @@ class Battlesnake(object):
         # else:
         #   move = "up"
         move = "left"
-        print("X value at this time " + str(data["board"]["snakes"][0]["body"][1]["x"]))
-        print("Y value at this time " + str(data["board"]["snakes"][0]["body"][1]["y"]))
         # Choose a random direction to move in
         #possible_moves = ["up", "down", "left", "right"]
         #move = random.choice(possible_moves)
