@@ -154,7 +154,18 @@ class Battlesnake(object):
             and possible_down not in my_body\
             and possible_down_valid == True:
             move = "down"
-
+        elif possible_left not in my_body\
+            and possible_left_valid == True:
+            move = "left"
+        elif possible_up not in my_body\
+            and possible_up_valid == True:
+            move = "up"
+        elif possible_right not in my_body\
+            and possible_right_valid == True:
+            move = "right"
+        elif possible_down not in my_body\
+            and possible_down_valid == True:
+            move = "down"
         else:
             move = "down"
 
