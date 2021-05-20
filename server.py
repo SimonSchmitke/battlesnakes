@@ -56,23 +56,26 @@ class Battlesnake(object):
             counter+=1
 
 
-
+        # If I'm at the the top or bottom of map, go left or right.
         if my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
             and possible_right not in my_body:
             move = "right"
         elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
             and possible_left not in my_body:
             move = "left"
+        # If I'm at the the left or right of map, go up or down
         elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
             and possible_up not in my_body:
             move = "up"
         elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
             and possible_down not in my_body:
             move = "down"
+        # If I'm to the left of the food and the square to my right is open, go right
         elif my_snake["head"]["x"] < closest_food["x"]\
             and possible_right not in my_body\
             and possible_right["x"] <=10:
             move = "right"
+        # If I'm to the right of the food and the square to my left is open, go left
         elif my_snake["head"]["x"] > closest_food["x"]\
             and possible_left not in my_body\
             and possible_left["x"] >=0:
@@ -85,13 +88,13 @@ class Battlesnake(object):
             and possible_up not in my_body\
             and possible_up["y"] >=0:
             move = "down"
-        elif possible_right in my_body and possible_left in my body and possible_down in my body:
+        elif possible_right in my_body and possible_left in my_body and possible_down in my_body:
             move = "up"
-        elif possible_right in my_body and possible_up in my body and possible_down in my body:
+        elif possible_right in my_body and possible_up in my_body and possible_down in my_body:
             move = "left"
-        elif possible_left in my_body and possible_up in my body and possible_down in my body:
+        elif possible_left in my_body and possible_up in my_body and possible_down in my_body:
             move = "right"
-        elif possible_right in my_body and possible_left in my body and possible_up in my body:
+        elif possible_right in my_body and possible_left in my_body and possible_up in my_body:
             move = "down"
         else:
             move = "down"
