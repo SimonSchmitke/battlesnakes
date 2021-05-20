@@ -76,79 +76,83 @@ class Battlesnake(object):
 
     # This section makes sure I stay in bounds
         # If I'm at the bottom left corner and can move up, move up.
-        if my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 0\
-            and possible_up not in my_body:
-            move = "up"
-        # If I'm at the bottom left corner and can move right, move right.
-        elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 0\
-            and possible_right not in my_body:
-            move = "right"
-        # If I'm at the bottom right corner and can move up, move up.
-        elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 10\
-            and possible_up not in my_body:
-            move = "up"
-        # If I'm at the bottom right corner and can move left, move left.
-        elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 10\
-            and possible_left not in my_body:
-            move = "left"
-        # If I'm at the top right corner and can move left, move left.
-        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 10\
-            and possible_left not in my_body:
-            move = "left"
-        # If I'm at the top right corner and can move down, move down.
-        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 10\
-            and possible_down not in my_body:
-            move = "down"
-        # If I'm at the top left corner and can move down, move down.
-        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
-            and possible_down not in my_body:
-            move = "down"
-        # If I'm at the top left corner and can move right, move right.
-        elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
-            and possible_right not in my_body:
-            move = "right"
-        elif possible_right in my_body and possible_left in my_body and possible_down in my_body\
-            and possible_up_valid == True:
-            move = "up"
-        elif possible_right in my_body and possible_up in my_body and possible_down in my_body\
-            and possible_left_valid == True:
-            move = "left"
-        elif possible_left in my_body and possible_up in my_body and possible_down in my_body\
-            and possible_right_valid == True:
-            move = "right"
-        elif possible_right in my_body and possible_left in my_body and possible_up in my_body\
-            and possible_down_valid == True:
-            move = "down"
-        # If I'm at the top or bottom row and can move right, go right.
-        elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
-            and possible_right not in my_body:
-            move = "right"
-        # If I'm at the top or bottom row and can move left, go left.
-        elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
-            and possible_left not in my_body:
-            move = "left"
-        # If I'm at the the left or right of map, go up or down
-        elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
-            and possible_up not in my_body:
-            move = "up"
-        elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
-            and possible_down not in my_body:
-            move = "down"
+        # if my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 0\
+        #     and possible_up not in my_body:
+        #     move = "up"
+        # # If I'm at the bottom left corner and can move right, move right.
+        # elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 0\
+        #     and possible_right not in my_body:
+        #     move = "right"
+        # # If I'm at the bottom right corner and can move up, move up.
+        # elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 10\
+        #     and possible_up not in my_body:
+        #     move = "up"
+        # # If I'm at the bottom right corner and can move left, move left.
+        # elif my_snake["head"]["y"] == 0 and my_snake["head"]["x"] == 10\
+        #     and possible_left not in my_body:
+        #     move = "left"
+        # # If I'm at the top right corner and can move left, move left.
+        # elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 10\
+        #     and possible_left not in my_body:
+        #     move = "left"
+        # # If I'm at the top right corner and can move down, move down.
+        # elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 10\
+        #     and possible_down not in my_body:
+        #     move = "down"
+        # # If I'm at the top left corner and can move down, move down.
+        # elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
+        #     and possible_down not in my_body:
+        #     move = "down"
+        # # If I'm at the top left corner and can move right, move right.
+        # elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
+        #     and possible_right not in my_body:
+        #     move = "right"
+        # elif possible_right in my_body and possible_left in my_body and possible_down in my_body\
+        #     and possible_up_valid == True:
+        #     move = "up"
+        # elif possible_right in my_body and possible_up in my_body and possible_down in my_body\
+        #     and possible_left_valid == True:
+        #     move = "left"
+        # elif possible_left in my_body and possible_up in my_body and possible_down in my_body\
+        #     and possible_right_valid == True:
+        #     move = "right"
+        # elif possible_right in my_body and possible_left in my_body and possible_up in my_body\
+        #     and possible_down_valid == True:
+        #     move = "down"
+        # # If I'm at the top or bottom row and can move right, go right.
+        # elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
+        #     and possible_right not in my_body:
+        #     move = "right"
+        # # If I'm at the top or bottom row and can move left, go left.
+        # elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
+        #     and possible_left not in my_body:
+        #     move = "left"
+        # # If I'm at the the left or right of map, go up or down
+        # elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
+        #     and possible_up not in my_body:
+        #     move = "up"
+        # elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
+        #     and possible_down not in my_body:
+        #     move = "down"
     # This section searches for food
 
         # If I'm to the left of the food and the square to my right is open, go right
-        elif my_snake["head"]["x"] < closest_food["x"]\
-            and possible_right not in my_body:
+        if my_snake["head"]["x"] < closest_food["x"]\
+            and possible_right not in my_body\
+            and possible_right_valid == True:
             move = "right"
         # If I'm to the right of the food and the square to my left is open, go left
         elif my_snake["head"]["x"] > closest_food["x"]\
-            and possible_left not in my_body:
+            and possible_left not in my_body\
+            and possible_left_valid == True:
             move = "left"
         elif my_snake["head"]["y"] < closest_food["y"]\
-            and possible_up not in my_body:
+            and possible_up not in my_body\
+            and possible_up_valid == True:
             move = "up"
         elif my_snake["head"]["y"] < closest_food["y"]\
-            and possible_up not in my_body:
+            and possible_up not in my_body\
+            and possible_down_valid == True:
             move = "down"
 
         else:
