@@ -47,6 +47,25 @@ class Battlesnake(object):
         possible_left = { "x":my_snake["head"]["x"]-1, "y":my_snake["head"]["y"] }
         possible_up = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]+1}
         possible_down = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]-1}
+        if possible_right["x"] > 10:
+            possible_right_valid = False
+        else:
+            possible_right_valid = True
+
+        if possible_left["x"] < 0:
+            possible_left_valid = False
+        else:
+            possible_left_valid = True
+
+        if possible_up["y"] > 10:
+            possible_up_valid = False
+        else:
+            possible_up_valid = True\
+
+        if possible_down["y"] < 0:
+            possible_down_valid = False
+        else:
+            possible_down_valid = True
         is_food_available = False
         counter=0
         while is_food_available == False:
@@ -88,13 +107,17 @@ class Battlesnake(object):
         elif my_snake["head"]["y"] == 10 and my_snake["head"]["x"] == 0\
             and possible_right not in my_body:
             move = "right"
-        elif possible_right in my_body and possible_left in my_body and possible_down in my_body:
+        elif possible_right in my_body and possible_left in my_body and possible_down in my_body\
+            and possible_up_valid == True:
             move = "up"
-        elif possible_right in my_body and possible_up in my_body and possible_down in my_body:
+        elif possible_right in my_body and possible_up in my_body and possible_down in my_body\
+            and possible_left_valid == True:
             move = "left"
-        elif possible_left in my_body and possible_up in my_body and possible_down in my_body:
+        elif possible_left in my_body and possible_up in my_body and possible_down in my_body\
+            and possible_right_valid == True:
             move = "right"
-        elif possible_right in my_body and possible_left in my_body and possible_up in my_body:
+        elif possible_right in my_body and possible_left in my_body and possible_up in my_body\
+            and possible_down_valid == True:
             move = "down"
         # If I'm at the top or bottom row and can move right, go right.
         elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
