@@ -45,9 +45,9 @@ class Battlesnake(object):
         # dist = MIN(\
         #         np.linalg.norm(data["board"]["food"][0] - my_snake["head"]) \
         #         , 1)
-        if my_snake["head"]["x"] < data["board"]["food"][0]["x"]:
+        if my_snake["head"]["x"] < data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
             move = "right"
-        elif my_snake["head"]["x"] > data["board"]["food"][0]["x"]:
+        elif my_snake["head"]["x"] > data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
             move = "left"
         elif my_snake["head"]["y"] < data["board"]["food"][0]["y"]:
             move = "up"
