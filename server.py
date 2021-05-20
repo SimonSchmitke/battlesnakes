@@ -57,7 +57,19 @@ class Battlesnake(object):
 
 
 
-        if my_snake["head"]["x"] < closest_food["x"]\
+        if my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
+            and possible_right not in my_body:
+            move = "right"
+        elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
+            and possible_left not in my_body:
+            move = "left"
+        elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
+            and possible_up not in my_body:
+            move = "up"
+        elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
+            and possible_down not in my_body:
+            move = "down"
+        elif my_snake["head"]["x"] < closest_food["x"]\
             and possible_right not in my_body\
             and possible_right["x"] <=10:
             move = "right"
@@ -73,12 +85,6 @@ class Battlesnake(object):
             and possible_up not in my_body\
             and possible_up["y"] >=0:
             move = "down"
-        elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
-            and possible_right not in my_body:
-            move = "right"
-        elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
-            and possible_left not in my_body:
-            move = "left"
         elif possible_right in my_body and possible_left in my body and possible_down in my body:
             move = "up"
         elif possible_right in my_body and possible_up in my body and possible_down in my body:
