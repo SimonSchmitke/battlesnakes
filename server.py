@@ -53,6 +53,7 @@ class Battlesnake(object):
             if data["board"]["food"][counter] not in my_body:
                 closest_food = data["board"]["food"][counter]
                 is_food_available = True
+            counter+=1
 
 
 
