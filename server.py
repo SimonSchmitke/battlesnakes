@@ -55,15 +55,15 @@ class Battlesnake(object):
         # else:
         #     move = "down"
         # Below code is to spin in a circle
-        if my_snake["head"]["x"] > 0 and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
-          move = "left"
-        elif my_snake["head"]["y"] > 0:
-          move = "down"
-        elif my_snake["head"]["x"] < 6 and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
-          move = "right"
-        else:
-          move = "up"
-        
+        # if my_snake["head"]["x"] > 0 and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
+        #   move = "left"
+        # elif my_snake["head"]["y"] > 0:
+        #   move = "down"
+        # elif my_snake["head"]["x"] < 6 and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
+        #   move = "right"
+        # else:
+        #   move = "up"
+        move = "left"
         print("X value at this time " + str(data["board"]["snakes"][0]["body"][1]["x"]))
         print("Y value at this time " + str(data["board"]["snakes"][0]["body"][1]["y"]))
         # Choose a random direction to move in
