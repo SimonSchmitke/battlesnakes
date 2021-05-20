@@ -58,17 +58,21 @@ class Battlesnake(object):
 
         # If I'm at the the top or bottom of map, go left or right.
         if my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
-            and possible_right not in my_body:
+            and possible_right not in my_body\
+            and possible_right["x"] <= 10 and possible_right["x"] >= 0:
             move = "right"
         elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
-            and possible_left not in my_body:
+            and possible_left not in my_body\
+            and possible_left["x"] <= 10 and possible_left["x"] >= 0::
             move = "left"
         # If I'm at the the left or right of map, go up or down
         elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
-            and possible_up not in my_body:
+            and possible_up not in my_body\
+            and possible_up["y"] <= 10 and possible_up["y"] >= 0:
             move = "up"
         elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
-            and possible_down not in my_body:
+            and possible_down not in my_body\
+            and possible_down["y"] <= 10 and possible_down["y"] >= 0:
             move = "down"
         # If I'm to the left of the food and the square to my right is open, go right
         elif my_snake["head"]["x"] < closest_food["x"]\
