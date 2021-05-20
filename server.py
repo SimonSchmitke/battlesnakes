@@ -106,6 +106,14 @@ class Battlesnake(object):
             and possible_down["y"] <= 10 and possible_down["y"] >= 0:
             move = "down"
     # This section searches for food
+        elif possible_right in my_body and possible_left in my_body and possible_down in my_body:
+            move = "up"
+        elif possible_right in my_body and possible_up in my_body and possible_down in my_body:
+            move = "left"
+        elif possible_left in my_body and possible_up in my_body and possible_down in my_body:
+            move = "right"
+        elif possible_right in my_body and possible_left in my_body and possible_up in my_body:
+            move = "down"
         # If I'm to the left of the food and the square to my right is open, go right
         elif my_snake["head"]["x"] < closest_food["x"]\
             and possible_right not in my_body:
@@ -120,14 +128,7 @@ class Battlesnake(object):
         elif my_snake["head"]["y"] < closest_food["y"]\
             and possible_up not in my_body:
             move = "down"
-        elif possible_right in my_body and possible_left in my_body and possible_down in my_body:
-            move = "up"
-        elif possible_right in my_body and possible_up in my_body and possible_down in my_body:
-            move = "left"
-        elif possible_left in my_body and possible_up in my_body and possible_down in my_body:
-            move = "right"
-        elif possible_right in my_body and possible_left in my_body and possible_up in my_body:
-            move = "down"
+
         else:
             move = "down"
 
