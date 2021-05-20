@@ -42,17 +42,36 @@ class Battlesnake(object):
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
         my_snake = data["you"]
-        # dist = MIN(\
-        #         np.linalg.norm(data["board"]["food"][0] - my_snake["head"]) \
-        #         , 1)
-        if my_snake["head"]["x"] < data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1:
+        my_body = data["you"]["body"]
+        possible_right = { "x":my_snake["head"]["x"]+1, "y":my_snake["head"]["y"] }
+        possible_left = { "x":my_snake["head"]["x"]-1, "y":my_snake["head"]["y"] }
+        possible_up = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]+1}
+        possible_down = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]-1}
+
+        if my_snake["head"]["x"] < data["board"]["food"][0]["x"]\
+            and possible_right not in my_body:
             move = "right"
-        elif my_snake["head"]["x"] > data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
+        elif my_snake["head"]["x"] > data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1\
+            and possible_left not in my_body:
             move = "left"
-        elif my_snake["head"]["y"] < data["board"]["food"][0]["y"]:
+        elif my_snake["head"]["y"] < data["board"]["food"][0]["y"] and my_snake["body"][1]["y"] != my_snake["head"]["y"] +1\
+            and possible_up not in my_body:
             move = "up"
         else:
             move = "down"
+
+
+        # if my_snake["head"]["x"] < data["board"]["food"][0]["x"]\
+        #     and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1\
+        #     move = "right"
+        # elif my_snake["head"]["x"] > data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
+        #     move = "left"
+        # elif my_snake["head"]["y"] < data["board"]["food"][0]["y"] and my_snake["body"][1]["y"] != my_snake["head"]["y"] +1:
+        #     move = "up"
+        # else:
+        #     move = "down"
+
+
         # Below code is to spin in a circle
         # if my_snake["head"]["x"] > 0 and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1:
         #   move = "left"
