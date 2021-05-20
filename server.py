@@ -47,16 +47,24 @@ class Battlesnake(object):
         possible_left = { "x":my_snake["head"]["x"]-1, "y":my_snake["head"]["y"] }
         possible_up = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]+1}
         possible_down = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]-1}
+        is_food_available = False
+        counter=0
+        while is_food_available = False:
+            if data["board"]["food"][counter] not in my_body:
+                closest_food = data["board"]["food"][counter]
+                is_food_available = True
 
-        if my_snake["head"]["x"] < data["board"]["food"][0]["x"]\
+
+
+        if my_snake["head"]["x"] < closest_food["x"]\
             and possible_right not in my_body\
             and possible_right["x"] <=10:
             move = "right"
-        elif my_snake["head"]["x"] > data["board"]["food"][0]["x"] and my_snake["body"][1]["x"] != my_snake["head"]["x"] -1\
+        elif my_snake["head"]["x"] > closest_food["x"]\
             and possible_left not in my_body\
             and possible_left["x"] >=0:
             move = "left"
-        elif my_snake["head"]["y"] < data["board"]["food"][0]["y"] and my_snake["body"][1]["y"] != my_snake["head"]["y"] +1\
+        elif my_snake["head"]["y"] < closest_food["y"]\
             and possible_up not in my_body\
             and possible_up["x"] <=10:
             move = "up"
