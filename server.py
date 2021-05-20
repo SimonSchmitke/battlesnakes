@@ -67,11 +67,20 @@ class Battlesnake(object):
             move = "left"
         elif my_snake["head"]["y"] < closest_food["y"]\
             and possible_up not in my_body\
-            and possible_up["x"] <=10:
+            and possible_up["y"] <=10:
             move = "up"
+        elif my_snake["head"]["y"] < closest_food["y"]\
+            and possible_up not in my_body\
+            and possible_up["y"] >=0:
+            move = "down"
+        elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
+            and possible_right not in my_body:
+            move = "right"
+        elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
+            and possible_left not in my_body:
+            move = "left"
         else:
             move = "down"
-
 
         # if my_snake["head"]["x"] < data["board"]["food"][0]["x"]\
         #     and my_snake["body"][1]["x"] != my_snake["head"]["x"] +1\
