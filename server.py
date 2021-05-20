@@ -63,7 +63,7 @@ class Battlesnake(object):
             move = "right"
         elif my_snake["head"]["y"] == 0 or my_snake["head"]["y"] == 10\
             and possible_left not in my_body\
-            and possible_left["x"] <= 10 and possible_left["x"] >= 0::
+            and possible_left["x"] <= 10 and possible_left["x"] >= 0:
             move = "left"
         # If I'm at the the left or right of map, go up or down
         elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
