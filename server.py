@@ -150,7 +150,7 @@ class Battlesnake(object):
             and possible_up not in my_body\
             and possible_up_valid == True:
             move = "up"
-        elif my_snake["head"]["y"] < closest_food["y"]\
+        elif my_snake["head"]["y"] > closest_food["y"]\
             and possible_down not in my_body\
             and possible_down_valid == True:
             move = "down"
