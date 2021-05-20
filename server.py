@@ -49,7 +49,7 @@ class Battlesnake(object):
         possible_down = { "x":my_snake["head"]["x"], "y":my_snake["head"]["y"]-1}
         is_food_available = False
         counter=0
-        while is_food_available = False:
+        while is_food_available == False:
             if data["board"]["food"][counter] not in my_body:
                 closest_food = data["board"]["food"][counter]
                 is_food_available = True
