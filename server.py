@@ -79,6 +79,14 @@ class Battlesnake(object):
         elif my_snake["head"]["x"] == 0 or my_snake["head"]["x"] == 10\
             and possible_left not in my_body:
             move = "left"
+        elif possible_right in my_body and possible_left in my body and possible_down in my body:
+            move = "up"
+        elif possible_right in my_body and possible_up in my body and possible_down in my body:
+            move = "left"
+        elif possible_left in my_body and possible_up in my body and possible_down in my body:
+            move = "right"
+        elif possible_right in my_body and possible_left in my body and possible_up in my body:
+            move = "down"
         else:
             move = "down"
 
